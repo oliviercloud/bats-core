@@ -170,11 +170,7 @@ for filename in "${arguments[@]}"; do
   fi
 done
 
-if [[ "${#filenames[@]}" -eq 1 ]]; then
-  command='bats-exec-test'
-else
-  command='bats-exec-suite'
-fi
+command='bats-exec-suite'
 
 set -o pipefail execfail
 [[ -n "$output" ]] && export BATS_REPORT_OUTPUT_PATH="$output"

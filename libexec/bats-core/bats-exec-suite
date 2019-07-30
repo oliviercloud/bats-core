@@ -58,7 +58,7 @@ offset=0
 for filename in "$@"; do
   index=0
   if [[ -n "$enable_timing" ]]; then
-    echo suite $(basename "$filename")
+    echo "suite ${filename}"
   fi
   {
     IFS= read -r # 1..n

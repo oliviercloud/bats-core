@@ -90,12 +90,14 @@ flush_log() {
 
 finish_suite() {
   [[ ${count} -gt 0 ]] && {
+  local out_path=$(output_path)
+    install -D /dev/null "${out_path}"
     (
       flush_log
       header
       flush
       footer
-    ) > "$(output_path)"
+    ) > "${out_path}"
   }
   init_suite
 }
