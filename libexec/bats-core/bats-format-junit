@@ -103,10 +103,15 @@ finish_suite() {
 }
 
 output_path() {
-  path="TestReport-${class}.xml"
+  path='Test-report.xml'
+  if [[ -n "${class}" ]]; then
+    path="${class}.xml"
+  fi  
+
   if [[ -n "$BATS_REPORT_OUTPUT_PATH" ]]; then
     path="${BATS_REPORT_OUTPUT_PATH%/}/${path}"
   fi
+  
   echo $path
 }
 
