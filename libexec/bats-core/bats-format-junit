@@ -91,7 +91,7 @@ flush_log() {
 finish_suite() {
   [[ ${count} -gt 0 ]] && {
   local out_path=$(output_path)
-    install -D /dev/null "${out_path}"
+    install -D --mode=666 /dev/null "${out_path}"
     (
       flush_log
       header
